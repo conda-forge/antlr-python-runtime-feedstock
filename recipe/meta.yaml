@@ -1,6 +1,3 @@
-{% set name = " " %}
-{% set sha256 = "" %}
-
 {% set name = "antlr4-python2-runtime" %}  # [py2k]
 {% set sha256 = "3bc09f7fe058fe8ede92e5d292f7a6932022cde28bb0ba5f44f96842c3c894d8" %}  # [py2k]
 
@@ -15,18 +12,17 @@ package:
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
 
 build:
   number: 1000
-  script: python setup.py install --single-version-externally-managed --record=record.txt
+  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
 
 requirements:
   build:
     - python
-    - setuptools
+    - pip
   run:
     - python
 
