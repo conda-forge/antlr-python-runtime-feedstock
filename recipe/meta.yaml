@@ -1,19 +1,15 @@
 {% set name = "antlr4-python2-runtime" %}  # [py2k]
-{% set sha256 = "3bc09f7fe058fe8ede92e5d292f7a6932022cde28bb0ba5f44f96842c3c894d8" %}  # [py2k]
-
 {% set name = "antlr4-python3-runtime" %}  # [py3k]
-{% set sha256 = "1b26b72c4492cef310542da10bf6b2ab4aa1775618fc6003f75b55ae9eaa3fd3" %}  # [py3k]
-
-{% set version = "4.7.1" %}
-
+{% set version = "4.7.2" %}
 
 package:
   name: antlr-python-runtime
   version: {{ version }}
 
 source:
-  sha256: {{ sha256 }}
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: 580825bdd89ed6200170710cb26cc1e64f96f145870d8c2cfdf162cb0b8b9212  # [py2k]
+  sha256: 168cdcec8fb9152e84a87ca6fd261b3d54c8f6358f42ab3b813b14a7193bb50b  # [py3k]
 
 build:
   number: 1000
