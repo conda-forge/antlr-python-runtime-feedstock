@@ -32,7 +32,7 @@ test:
     - antlr4.xpath
 
 about:
-  home: http://www.antlr.org
+  home: https://www.antlr.org
   license: BSD-3-Clause
   license_family: BSD
   summary: This is the Python runtime for ANTLR.
