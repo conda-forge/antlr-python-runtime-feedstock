@@ -1,6 +1,6 @@
 {% set name = "antlr4-python2-runtime" %}  # [py2k]
 {% set name = "antlr4-python3-runtime" %}  # [py3k]
-{% set version = "4.7.2" %}
+{% set version = "4.8" %}
 
 package:
   name: antlr-python-runtime
@@ -14,7 +14,7 @@ source:
     sha256: b1b379fcaf3219593a4c433feb1b35c780bed23fafaae440b1ae2771a9521e3a
 
 build:
-  number: 1001
+  number: 0
   script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
 
 requirements:
