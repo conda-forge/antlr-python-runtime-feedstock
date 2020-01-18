@@ -1,7 +1,7 @@
 About antlr-python-runtime
 ==========================
 
-Home: http://www.antlr.org
+Home: https://www.antlr.org
 
 Package license: BSD-3-Clause
 
