@@ -7,12 +7,14 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 580825bdd89ed6200170710cb26cc1e64f96f145870d8c2cfdf162cb0b8b9212  # [py2k]
-  sha256: 168cdcec8fb9152e84a87ca6fd261b3d54c8f6358f42ab3b813b14a7193bb50b  # [py3k]
+  - url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+    sha256: 580825bdd89ed6200170710cb26cc1e64f96f145870d8c2cfdf162cb0b8b9212  # [py2k]
+    sha256: 168cdcec8fb9152e84a87ca6fd261b3d54c8f6358f42ab3b813b14a7193bb50b  # [py3k]
+  - url: https://raw.githubusercontent.com/antlr/antlr4/{{ version }}/LICENSE.txt
+    sha256: b1b379fcaf3219593a4c433feb1b35c780bed23fafaae440b1ae2771a9521e3a
 
 build:
-  number: 1000
+  number: 1001
   script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
 
 requirements:
@@ -35,6 +37,7 @@ about:
   home: https://www.antlr.org
   license: BSD-3-Clause
   license_family: BSD
+  license_file: LICENSE.txt
   summary: This is the Python runtime for ANTLR.
   dev_url: https://github.com/antlr/antlr4
   doc_url: https://github.com/antlr/antlr4/blob/master/doc/python-target.md
