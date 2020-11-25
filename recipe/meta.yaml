@@ -26,6 +26,8 @@ requirements:
     - python
 
 test:
+  requires:
+    - pip
   imports:
     - antlr4
     - antlr4.atn
@@ -33,6 +35,8 @@ test:
     - antlr4.error
     - antlr4.tree
     - antlr4.xpath
+  commands:
+    - pip check
 
 about:
   home: https://www.antlr.org
