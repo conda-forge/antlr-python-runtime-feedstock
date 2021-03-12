@@ -1,6 +1,6 @@
 {% set name = "antlr4-python2-runtime" %}  # [py2k]
 {% set name = "antlr4-python3-runtime" %}  # [py3k]
-{% set version = "4.9.1" %}
+{% set version = "4.9.2" %}
 
 package:
   name: antlr-python-runtime
@@ -8,14 +8,14 @@ package:
 
 source:
   - url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-    sha256: d746f9eac38f8fbd65d54928a18bc82bd32f96af8301f23f7407606f03cef429  # [py2k]
-    sha256: 759eddb70061ff7387bc877f5b59e3344ab374843604f757afa5b308cb68669a  # [py3k]
+    sha256: 5aa1767d9079c36eb693806fb4db48be0daffe9c26bd62789aeee00eb88b497d  # [py2k]
+    sha256: 31f5abdc7faf16a1a6e9bf2eb31565d004359b821b09944436a34361929ae85a  # [py3k]
 
   - url: https://raw.githubusercontent.com/antlr/antlr4/{{ version }}/LICENSE.txt
     sha256: b1b379fcaf3219593a4c433feb1b35c780bed23fafaae440b1ae2771a9521e3a
 
 build:
-  number: 1
+  number: 0
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
 
 requirements:
