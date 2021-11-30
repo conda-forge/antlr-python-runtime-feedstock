@@ -1,6 +1,7 @@
 {% set name = "antlr4-python3-runtime" %}
 {% set version = "4.9.3" %}
 
+
 package:
   name: antlr-python-runtime
   version: {{ version }}
@@ -14,7 +15,7 @@ source:
 
 build:
   number: 0
-  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
+  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   build:
@@ -27,8 +28,6 @@ requirements:
     - python
 
 test:
-  requires:
-    - pip
   imports:
     - antlr4
     - antlr4.atn
@@ -38,6 +37,8 @@ test:
     - antlr4.xpath
   commands:
     - pip check
+  requires:
+    - pip
 
 about:
   home: https://www.antlr.org
