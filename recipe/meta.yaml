@@ -1,9 +1,10 @@
 {% set name = "antlr4-python3-runtime" %}
+{% set old_name = "antlr-python-runtime" %}
 {% set version = "4.9.3" %}
 
 
 package:
-  name: antlr-python-runtime
+  name: {{ old_name|lower }}-meta
   version: {{ version }}
 
 source:
@@ -13,32 +14,48 @@ source:
   - url: https://raw.githubusercontent.com/antlr/antlr4/{{ version }}/LICENSE.txt
     sha256: b1b379fcaf3219593a4c433feb1b35c780bed23fafaae440b1ae2771a9521e3a
 
+
 build:
-  number: 0
-  script: {{ PYTHON }} -m pip install . -vv
+  number: 1
 
-requirements:
-  build:
-    - python                                 # [build_platform != target_platform]
-    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
-  host:
-    - python
-    - pip
-  run:
-    - python
 
-test:
-  imports:
-    - antlr4
-    - antlr4.atn
-    - antlr4.dfa
-    - antlr4.error
-    - antlr4.tree
-    - antlr4.xpath
-  commands:
-    - pip check
-  requires:
-    - pip
+outputs:
+
+  - name: {{ old_name|lower }}
+    script: build_base.sh
+    requirements:
+      build:
+        - python                                 # [build_platform != target_platform]
+        - cross-python_{{ target_platform }}     # [build_platform != target_platform]
+      host:
+        - python
+        - pip
+      run:
+        - python
+
+    test:
+      imports:
+        - antlr4
+        - antlr4.atn
+        - antlr4.dfa
+        - antlr4.error
+        - antlr4.tree
+        - antlr4.xpath
+      commands:
+        - pip check
+      requires:
+        - pip
+
+  - name: {{ name|lower }}
+    build:
+      noarch: generic
+    requirements:
+      run:
+        - {{ old_name|lower }} {{ version }}
+    test:
+      imports:
+        - antlr4
+
 
 about:
   home: https://www.antlr.org
@@ -52,3 +69,4 @@ about:
 extra:
   recipe-maintainers:
     - bollwyvl
+  feedstock-name: {{ old_name|lower }}
