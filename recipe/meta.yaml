@@ -1,5 +1,5 @@
-{% set version = "4.9.3" %}
-{% set build_number = 1 %}
+{% set version = "4.9.2" %}
+{% set build_number = 2 %}
 
 package:
   name: antlr-python-runtime-meta
@@ -7,7 +7,7 @@ package:
 
 source:
   - url: https://pypi.io/packages/source/a/antlr4-python3-runtime/antlr4-python3-runtime-{{ version }}.tar.gz
-    sha256: f224469b4168294902bb1efa80a8bf7855f24c99aef99cbefc1bcd3cce77881b
+    sha256: 31f5abdc7faf16a1a6e9bf2eb31565d004359b821b09944436a34361929ae85a
     patches:
       - 0001-add-entry-point.patch
       - 0002-add-main-for-entry-point.patch
