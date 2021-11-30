@@ -247,6 +247,7 @@ Current release info
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-antlr--python--runtime-green.svg)](https://anaconda.org/conda-forge/antlr-python-runtime) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/antlr-python-runtime.svg)](https://anaconda.org/conda-forge/antlr-python-runtime) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/antlr-python-runtime.svg)](https://anaconda.org/conda-forge/antlr-python-runtime) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/antlr-python-runtime.svg)](https://anaconda.org/conda-forge/antlr-python-runtime) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-antlr4--python3--runtime-green.svg)](https://anaconda.org/conda-forge/antlr4-python3-runtime) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/antlr4-python3-runtime.svg)](https://anaconda.org/conda-forge/antlr4-python3-runtime) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/antlr4-python3-runtime.svg)](https://anaconda.org/conda-forge/antlr4-python3-runtime) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/antlr4-python3-runtime.svg)](https://anaconda.org/conda-forge/antlr4-python3-runtime) |
 
 Installing antlr-python-runtime
 ===============================
@@ -258,10 +259,10 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `antlr-python-runtime` can be installed with:
+Once the `conda-forge` channel has been enabled, `antlr-python-runtime, antlr4-python3-runtime` can be installed with:
 
 ```
-conda install antlr-python-runtime
+conda install antlr-python-runtime antlr4-python3-runtime
 ```
 
 It is possible to list all of the versions of `antlr-python-runtime` available on your platform with:
