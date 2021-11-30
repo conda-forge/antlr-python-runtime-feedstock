@@ -1,0 +1,18 @@
+--- bin/pygrun	2021-11-30 15:14:49.175793546 -0600
++++ bin/pygrun	2021-11-30 15:16:31.623126274 -0600
+@@ -26,7 +26,7 @@
+     return out_string
+ 
+ 
+-if __name__ == '__main__':
++def main():
+ 
+     #############################################################
+     # parse options
+@@ -162,3 +162,6 @@
+             process(input_stream, class_lexer, class_parser)
+         else:
+             print("[ERROR] file {} not exist".format(os.path.normpath(file_name)))
++
++if __name__ == "__main__":
++    main()

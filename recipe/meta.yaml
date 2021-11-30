@@ -1,40 +1,52 @@
-{% set name = "antlr4-python3-runtime" %}
-{% set old_name = "antlr-python-runtime" %}
 {% set version = "4.9.3" %}
-
+{% set build_number = 1 %}
 
 package:
-  name: {{ name }}-meta
+  name: antlr-python-runtime-meta
   version: {{ version }}
 
 source:
-  - url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  - url: https://pypi.io/packages/source/a/antlr4-python3-runtime/antlr4-python3-runtime-{{ version }}.tar.gz
     sha256: f224469b4168294902bb1efa80a8bf7855f24c99aef99cbefc1bcd3cce77881b
     patches:
-      - 0001-Use-entry_points.patch
+      - 0001-add-entry-point.patch
+      - 0002-add-main-for-entry-point.patch
 
   - url: https://raw.githubusercontent.com/antlr/antlr4/{{ version }}/LICENSE.txt
     sha256: b1b379fcaf3219593a4c433feb1b35c780bed23fafaae440b1ae2771a9521e3a
 
-
 build:
-  number: 1
+  number: {{ build_number }}
+  noarch: python
 
+requirements:
+  host:
+    - pip
+    - python >=3.6
+  run:
+    - python >=3.6
+
+test:
+  commands:
+    - echo "tests in outputs"
 
 outputs:
 
-  - name: {{ name }}
-    script: build_base.sh
+  - name: antlr-python-runtime
+    build:
+      build_number: {{ build_number }}
+      noarch: python
+      script:
+        - {{ PYTHON }} -c "__import__('os').rename('bin/pygrun', 'src/antlr4/_pygrun.py')"
+        - {{ PYTHON }} -m pip install . --no-deps --no-index -vv
+      entry_points:
+        - pygrun=antlr4._pygrun:main
     requirements:
-      build:
-        - python                                 # [build_platform != target_platform]
-        - cross-python_{{ target_platform }}     # [build_platform != target_platform]
       host:
-        - python
         - pip
+        - python >=3.6
       run:
-        - python
-
+        - python >=3.6
     test:
       imports:
         - antlr4
@@ -49,16 +61,19 @@ outputs:
       requires:
         - pip
 
-  - name: {{ old_name }}
+  - name: antlr4-python3-runtime
     build:
-      noarch: generic
+      build_number: {{ build_number }}
+      noarch: python
     requirements:
+      host:
+        - python
       run:
-        - {{ name }} {{ version }}
+        - python >=3.6
+        - antlr-python-runtime {{ version }}.*
     test:
       imports:
         - antlr4
-
 
 about:
   home: https://www.antlr.org
@@ -70,6 +85,6 @@ about:
   doc_url: https://github.com/antlr/antlr4/blob/master/doc/python-target.md
 
 extra:
+  feedstock-name: antlr-python-runtime
   recipe-maintainers:
     - bollwyvl
-  feedstock-name: {{ old_name }}
