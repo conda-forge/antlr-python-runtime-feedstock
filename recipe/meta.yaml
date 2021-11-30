@@ -69,4 +69,4 @@ about:
 extra:
   recipe-maintainers:
     - bollwyvl
-  feedstock-name: {{ old_name}}
+  feedstock-name: {{ old_name }}
