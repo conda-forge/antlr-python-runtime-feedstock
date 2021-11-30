@@ -4,7 +4,7 @@
 
 
 package:
-  name: {{ old_name }}-meta
+  name: {{ name }}-meta
   version: {{ version }}
 
 source:
@@ -21,7 +21,7 @@ build:
 
 outputs:
 
-  - name: {{ old_name }}
+  - name: {{ name }}
     script: build_base.sh
     requirements:
       build:
@@ -46,12 +46,12 @@ outputs:
       requires:
         - pip
 
-  - name: {{ name }}
+  - name: {{ old_name }}
     build:
       noarch: generic
     requirements:
       run:
-        - {{ old_name }} {{ version }}
+        - {{ name }} {{ version }}
     test:
       imports:
         - antlr4
