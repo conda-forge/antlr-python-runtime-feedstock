@@ -10,6 +10,8 @@ package:
 source:
   - url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
     sha256: f224469b4168294902bb1efa80a8bf7855f24c99aef99cbefc1bcd3cce77881b
+    patches:
+      - 0001-Use-entry_points.patch
 
   - url: https://raw.githubusercontent.com/antlr/antlr4/{{ version }}/LICENSE.txt
     sha256: b1b379fcaf3219593a4c433feb1b35c780bed23fafaae440b1ae2771a9521e3a
@@ -43,6 +45,7 @@ outputs:
         - antlr4.xpath
       commands:
         - pip check
+        - pygrun -h
       requires:
         - pip
 
