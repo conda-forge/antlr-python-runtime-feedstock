@@ -33,9 +33,7 @@ outputs:
     build:
       build_number: {{ build_number }}
       noarch: python
-      script:
-        - {{ PYTHON }} -c "__import__('os').rename('bin/pygrun', 'src/antlr4/_pygrun.py')"
-        - {{ PYTHON }} -m pip install . --no-deps --no-index -vv
+      script: {{ PYTHON }} -m pip install . --no-deps --no-index -vv
     requirements:
       host:
         - pip
