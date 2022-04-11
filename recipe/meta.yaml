@@ -1,5 +1,5 @@
-{% set version = "4.9.3" %}
-{% set build_number = 1 %}
+{% set version = "4.10" %}
+{% set build_number = 0 %}
 
 package:
   name: antlr-python-runtime-meta
@@ -7,11 +7,7 @@ package:
 
 source:
   - url: https://pypi.io/packages/source/a/antlr4-python3-runtime/antlr4-python3-runtime-{{ version }}.tar.gz
-    sha256: f224469b4168294902bb1efa80a8bf7855f24c99aef99cbefc1bcd3cce77881b
-    patches:
-      - 0001-add-entry-point.patch
-      - 0002-add-main-for-entry-point.patch
-
+    sha256: 061a49bc72ae05a35d9b61c0ba0ac36c0397708819f02fbfb20a80e47d287a1b
   - url: https://raw.githubusercontent.com/antlr/antlr4/{{ version }}/LICENSE.txt
     sha256: b1b379fcaf3219593a4c433feb1b35c780bed23fafaae440b1ae2771a9521e3a
 
@@ -36,9 +32,7 @@ outputs:
     build:
       build_number: {{ build_number }}
       noarch: python
-      script:
-        - {{ PYTHON }} -c "__import__('os').rename('bin/pygrun', 'src/antlr4/_pygrun.py')"
-        - {{ PYTHON }} -m pip install . --no-deps --no-index -vv
+      script: {{ PYTHON }} -m pip install . --no-deps --no-index -vv
       entry_points:
         - pygrun=antlr4._pygrun:main
     requirements:
