@@ -1,11 +1,11 @@
-About antlr-python-runtime
-==========================
+About antlr-python-runtime-feedstock
+====================================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/antlr-python-runtime-feedstock/blob/main/LICENSE.txt)
 
 Home: https://www.antlr.org
 
 Package license: BSD-3-Clause
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/antlr-python-runtime-feedstock/blob/main/LICENSE.txt)
 
 Summary: This is the Python runtime for ANTLR.
 
