@@ -32,7 +32,7 @@ outputs:
     build:
       build_number: {{ build_number }}
       noarch: python
-      script: {{ PYTHON }} -m pip install . --no-deps --no-index -vv
+      script: {{ PYTHON }} -m pip install . --no-deps --no-index -vv --no-build-isolation
       entry_points:
         - pygrun=antlr4._pygrun:main
     requirements:
